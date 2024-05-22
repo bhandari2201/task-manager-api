@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/', authenticate, create);
 router.get('/', authenticate, getTasks);
-router.put('/:id', authenticate, update);
+router.patch('/:id', authenticate, update);
 router.delete('/:id', authenticate, remove);
 
 export default router;

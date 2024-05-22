@@ -1,21 +1,25 @@
 import db from '../db/index.js';
 
 const createTask = async (title, description, userId) => {
-  const [result] = await db.query('INSERT INTO tasks (title, description, user_id) VALUES (?, ?, ?)', [title, description, userId]);
-  return result.insertId;
+  try {
+    const result =  db.query('INSERT INTO tasks (title, description, user_id) VALUES (?, ?, ?)', [title, description, userId]);
+    return result.id;
+  } catch (error) {
+    console.log(error)
+  }
 };
 
-const getTaskById = async (id) => {
-  const [rows] = await db.query('SELECT * FROM tasks WHERE id = ?', [id]);
-  return rows[0];
+const getTasksById = async (id) => {
+  const rows =  db.query('SELECT * FROM tasks WHERE id = ?', [id]);
+  return rows;
 };
 
 const updateTask = async (id, title, description) => {
-  await db.query('UPDATE tasks SET title = ?, description = ? WHERE id = ?', [title, description, id]);
+   db.query('UPDATE tasks SET title = ?, description = ? WHERE id = ?', [title, description, id]);
 };
 
 const deleteTask = async (id) => {
-  await db.query('DELETE FROM tasks WHERE id = ?', [id]);
+   db.query('DELETE FROM tasks WHERE id = ?', [id]);
 };
 
-export {createTask, getTaskById, updateTask, deleteTask}
+export {createTask, getTasksById, updateTask, deleteTask}

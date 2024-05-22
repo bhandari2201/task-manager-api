@@ -1,13 +1,17 @@
+import dotenv from 'dotenv';
+dotenv.config({
+    path: './.env'
+})
 import express from 'express';
 import bodyParser from 'body-parser';
-import userRoutes from './routes/userRoutes.js';
-import taskRoutes from './routes/taskRoutes.js';
-import dotenv from 'dotenv';
+import userRoutes from './routes/user.routes.js';
+import taskRoutes from './routes/task.routes.js';
 
-dotenv.config();
+console.log(process.env.DB_HOST)
 
 const app = express();
 app.use(bodyParser.json());
+
 
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
