@@ -16,7 +16,11 @@ A brief description of what this project does and who it's for
 #### Task Roues
 
 ```http
-  GET /api/tasks/${id}
+  GET /api/tasks/
+  POST /api/tasks/
+  GET /api/tasks/id
+  PATCH /api/tasks/id
+  DELETE /api/tasks/id
 ```
 
 
