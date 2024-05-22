@@ -11,3 +11,4 @@ const getUserByUsername = async (username) => {
 };
 
 export {createUser, getUserByUsername}
+

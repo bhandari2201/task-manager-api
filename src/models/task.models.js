@@ -1,4 +1,4 @@
-import db from './db.js';
+import db from '../db/index.js';
 
 const createTask = async (title, description, userId) => {
   const [result] = await db.query('INSERT INTO tasks (title, description, user_id) VALUES (?, ?, ?)', [title, description, userId]);
