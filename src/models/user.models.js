@@ -9,7 +9,7 @@ const createUser = async (uid,username, password) => {
 };
 
 const getUserByUsername = async (username) => {
-  const rows =  db.query('SELECT * FROM users WHERE username = ?', [username]);
+  const [rows] =  db.query('SELECT * FROM users WHERE username = ?', [username]);
   return rows[0];
 };
 
